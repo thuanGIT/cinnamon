@@ -15,4 +15,4 @@ async def on_message(message):
     if message.content.startswith('$inspire'):
         await message.channel.send('Hello!')
 
-client.run('NzkzMDE1OTk4MDEzMjQzMzk0.X-mHsw.6oqak_0NYoDb6N-dfXFM3XPwLmk')
+client.run(os.environ['TOKEN'])
