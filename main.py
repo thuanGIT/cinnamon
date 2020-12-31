@@ -5,7 +5,7 @@ import pymongo
 from pymongo import MongoClient
 
 # Use to load environment variable
-load_dotenv()
+#load_dotenv()
 # Specify the user (here it is Cinnamon)
 client = discord.Client()
 # Connect to MongoDB cluster
