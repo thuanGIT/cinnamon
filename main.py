@@ -1,6 +1,6 @@
 import discord
 import os
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import pymongo
 from pymongo import MongoClient
 
