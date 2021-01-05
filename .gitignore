@@ -1,2 +1,4 @@
 env/
 .env
+src/cogs/__pycache__/
+error.log
