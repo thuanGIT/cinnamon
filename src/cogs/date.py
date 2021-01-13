@@ -35,7 +35,7 @@ class DueDate(commands.Cog, name = 'Due Date'):
         cursor = self.dueDate.find({})
         if cursor:
             for document in cursor:
-                em.add_field(name = str(document["report#"]), value = document["due-date"] )
+                em.add_field(name = "Report " + str(document["report#"]), value = document["due-date"], inline = False)
             await context.send(embed = em)
         else:
             await context.send("No due date yet! So no worry!")
