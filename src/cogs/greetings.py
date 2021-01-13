@@ -1,23 +1,21 @@
-import discord
+from discord import colour
 from discord.ext import commands
-import help
-
+import discord
 
 class Greetings(commands.Cog):
-    def _init_(self, bot):
+    def __init__(self, bot):
         self.bot = bot
-        self._original_help_command = bot.help_command
-        bot.help_command = help.MyHelpCommand()
-        bot.help_command.cog = self
+        
 
     @commands.Cog.listener()
     async def on_member_join(self, member):
-        await member.channel.send(f"Welcome {member} to PHYS122 Lab!")
-
-        
-    @commands.command()
-    async def remind(self, context):
-        pass
+        poll_channel = discord.utils.get(self.bot.get_all_channels(), name = 'poll')
+        em = discord.Embed(
+            colour = discord.Colour.dark_orange(),
+            title = "Welcome to PHYS122 Lab3/Lab12 Server"
+        )
+        em.add_field(name = "Your first task", value = f"Please come to {poll_channel.mention} to tell me which lab you are in!")
+        await member.send(embed = em, delete_after = 5.0)
 
 def setup(bot):
     bot.add_cog(Greetings(bot))
