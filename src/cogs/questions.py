@@ -1,5 +1,4 @@
 from discord.ext import commands
-from pymongo import MongoClient
 from database import db
 
 class Questions (commands.Cog):
@@ -12,15 +11,17 @@ class Questions (commands.Cog):
         cursor = self.faqs.find({})
         for document in cursor:
             order = document['order#']
-            question = document['question']
-            await context.send(f'Question #{order}: {question}\n')
+            QA = document["QA"]
+            question = QA['question']
+            answer = QA['answer']
+            await context.send(f'Question #{order}: {question}\n\t->{answer}')
     
 
     @commands.command(name = 'add-questions', help = 'Add a question to FAQs', hidden = True)
     @commands.is_owner()
-    async def add_questions(self, context, question):
+    async def add_questions(self, context, question, answer):
         size = self.faqs.count_documents({})
-        data = {'order#': size + 1, 'question': question}
+        data = {'order#': size + 1, "QA": {'question': question, 'answer': answer}}
         self.faqs.insert_one(data)
         await context.send('New question accepted!')
 
@@ -28,26 +29,17 @@ class Questions (commands.Cog):
     @commands.is_owner()
     async def del_questions(self, context):
         await  context.invoke(self.bot.get_command('FAQs'))
-        await context.send('Please choose a question to delete! Or type \'cancel\' to stop!')
-
-       # check function
-        def check(message):
-            if message.lower() == 'cancel':
-                return True
-            try:
-                index = int(message)
-                return index > 0 and index < self.faqs.count_documents({})
-            except Exception:
-                return False
-
+        await context.send('\nPlease choose a question to delete! Or type \'cancel\' to stop!')
         while True:
-            choice = self.bot.wait_for('message', check = check)
-
+            choice = await self.bot.wait_for('message', check = None)
+            print(choice.content)
             if choice is not None:
-                if choice.lower() == 'cancel':
+                if choice.content.lower() == 'cancel':
                     return
-                query = {'#order': int(choice)}
-                self.faqs.delete_one(query)
+                query = {'#order': int(choice.content)}
+                delete = self.faqs.delete_one(query)
+                if delete:
+                    await context.send("Delete successfully!")
                 break
             else:
                 await context.send('Invalid index. Try again!')
