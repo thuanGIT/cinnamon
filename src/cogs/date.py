@@ -46,7 +46,7 @@ class DueDate(commands.Cog, name = 'Due Date'):
     # args[1] = due date of report #
     async def set_report_due_date(self,context, *args):
         # try update the database. If not found, insert the new document
-        query = {"report#": args[0]}
+        query = {"report#": int(args[0])}
         check = self.dueDate.update_one(query, {"$set": {"due-date": args[1]}}, upsert = True)
         result = "Successully added"
         
