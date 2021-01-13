@@ -1,3 +1,4 @@
+###### Requirements for Cinnamon Bot ######
 discord.py
 pymongo
 dnspython
