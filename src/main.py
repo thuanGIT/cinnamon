@@ -1,9 +1,9 @@
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import bot
 
 # Use to load environment variable
-#load_dotenv()
+load_dotenv()
 
 # Load environment variables
 TOKEN = os.getenv('TOKEN')

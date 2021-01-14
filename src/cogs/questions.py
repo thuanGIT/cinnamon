@@ -14,7 +14,7 @@ class Questions (commands.Cog):
             QA = document["QA"]
             question = QA['question']
             answer = QA['answer']
-            await context.send(f'Question #{order}: {question}\n\t->{answer}')
+            await context.send(f'Question #{order}: {question}\n-> {answer}')
     
 
     @commands.command(name = 'add-questions', help = 'Add a question to FAQs', hidden = True)
