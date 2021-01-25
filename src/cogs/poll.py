@@ -75,7 +75,7 @@ class Poll(commands.Cog):
         
         if role:
             await reaction_sender.remove_roles(role, reason = 'remove emoji')
-            await message.channel.purge(limit = 2)
+            await message.channel.purge(limit = 3)
 
       
     @commands.command(name = 'stop-poll', help = 'Stop all polls', hidden = True)
