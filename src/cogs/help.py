@@ -1,4 +1,3 @@
-from discord import colour, embeds
 from discord.ext import commands
 import discord
 

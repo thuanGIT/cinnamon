@@ -8,7 +8,7 @@ class Questions (commands.Cog):
 
     @commands.command(name = 'FAQs', help = 'Get FAQs')
     async def list_faqs(self, context): 
-        cursor = self.faqs.find({})
+        cursor = self.faqs.find({}) # Return a cursor of documents
         for document in cursor:
             order = document['order#']
             QA = document["QA"]

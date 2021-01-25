@@ -10,3 +10,10 @@ class Bot(commands.Bot):
         super().__init__(command_prefix = command_prefix, description=description,  **options, intents = intents)
         self.email = "thuan.vo@ubc.ca"
 
+
+    @commands.command(name = "send_noti", hidden = True)
+    @commands.is_owner()
+    async def send_notification(self, context, message):
+        pass
+        
+
