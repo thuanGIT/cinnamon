@@ -18,11 +18,11 @@ class Greetings(commands.Cog):
         await member.send(embed = em, delete_after = 5.0)
 
     
-    @commands.command(name = "send_noti", hidden = True)
+    @commands.command(name = "send-noti", hidden = True)
     @commands.is_owner()
     async def send_notification(self, context, message):
-        lab03_channel = discord.utils.get(await message.guild.fetch_channels(), id = self.lab_channels["lab03"])
-        lab12_channel = discord.utils.get(await message.guild.fetch_channels(), id = self.lab_channels["lab12"])
+        lab03_channel = discord.utils.get(await context.guild.fetch_channels(), id = self.lab_channels["lab03"])
+        lab12_channel = discord.utils.get(await context.guild.fetch_channels(), id = self.lab_channels["lab12"])
 
         await lab03_channel.send(message)
         await lab12_channel.send(message)
