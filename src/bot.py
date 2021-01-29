@@ -9,10 +9,6 @@ class Bot(commands.Bot):
     def __init__(self, command_prefix = '#', description = 'PHYSLAB122_BOT', intents = intents, **options):
         super().__init__(command_prefix = command_prefix, description=description,  **options, intents = intents)
         self.email = "thuan.vo@ubc.ca"
-        self.lab_channels = {
-            "lab03": 796700415293915156,
-            "lab12": 796700478523572234
-        }
-
+        
 
 

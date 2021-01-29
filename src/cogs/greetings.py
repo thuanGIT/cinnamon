@@ -5,6 +5,11 @@ import discord
 class Greetings(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.lab_channels = {
+            "lab03": 796700415293915156,
+            "lab12": 796700478523572234
+        }
+
         
 
     @commands.Cog.listener()
