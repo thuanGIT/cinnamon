@@ -21,7 +21,7 @@ class Bot(commands.Bot):
         lab03_channel = discord.utils.get(await message.guild.fetch_channels(), id = self.lab_channels["lab03"])
         lab12_channel = discord.utils.get(await message.guild.fetch_channels(), id = self.lab_channels["lab12"])
 
-        await lab03_channel.send(message.content)
-        await lab12_channel.send(message.content)
+        await lab03_channel.send(message)
+        await lab12_channel.send(message)
         
 
