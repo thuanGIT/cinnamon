@@ -16,7 +16,7 @@ class Event(commands.Cog):
         if message.author == self.bot.user:
             return
         elif not content.startswith('#'): 
-            await message.channel.send("Message processing...", delete_after = 0.5)
+            await message.channel.send("Let me notify Jamie! Please wait a little...", delete_after = 0.5)
         
         # Register commands to work with on_message
         # No need for this because the default one has handled this already!
