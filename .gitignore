@@ -5,3 +5,4 @@ error.log
 ./assets
 **/.DS_Store
 cinnamon/
+.vscode/
