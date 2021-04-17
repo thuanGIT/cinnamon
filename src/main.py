@@ -1,9 +1,10 @@
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 import bot
 
 # Use to load environment variable
-#load_dotenv()
+# Command the below line out if you deploy it to Heroku.
+load_dotenv()
 
 # Load environment variables
 TOKEN = os.getenv('TOKEN')
