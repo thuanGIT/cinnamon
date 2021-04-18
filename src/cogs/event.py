@@ -1,5 +1,5 @@
 from discord.ext import commands
-from discord.ext.commands.core import Command
+import sys
 
 class Event(commands.Cog):
     def __init__(self, bot):
@@ -19,15 +19,16 @@ class Event(commands.Cog):
             await message.channel.send("Let me notify Jamie! Please wait a little...", delete_after = 0.5)
         
         # Register commands to work with on_message
-        # No need for this because the default one has handled this already!
-        #await self.bot.process_commands(message)
+        # Only use this in @bot.event. If placed in a listener, do not manually call this.
+        # await self.bot.process_commands(message)
     
     # Overriding the default error handler to save the error logs
-    @commands.Cog.listener()
-    async def on_error(self, event, *args, **kwargs):
-        with open('error.log', 'a') as f:
-            # Since on_message take only 1 argument so args[0] should be expected to be that argument.
-            f.write(f'Unhandled message: {args[0]}\n')
+    # Won't take any effect as said by the documentation
+    # @commands.Cog.listener()
+    # async def on_error(self, event, *args, **kwargs):
+    #     with open('error.log', 'a') as f:
+    #         # Since on_message take only 1 argument (message) so args[0] should be expected to be that argument.
+    #         f.write(f'Unhandled message: {args[0]}\n')
 
     #Overwrite on_command_error 
     @commands.Cog.listener()

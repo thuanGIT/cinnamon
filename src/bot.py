@@ -7,8 +7,5 @@ intents.members = True
 
 class Bot(commands.Bot):
     def __init__(self, command_prefix = '#', description = 'PHYSLAB122_BOT', intents = intents, **options):
-        super().__init__(command_prefix = command_prefix, description=description,  **options, intents = intents)
-        self.email = "thuan.vo@ubc.ca"
+        super().__init__(command_prefix = command_prefix, description=description, intents = intents,**options)
         
-
-
