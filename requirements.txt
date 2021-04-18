@@ -2,4 +2,4 @@
 discord.py
 pymongo
 dnspython
-#dotenv
+dotenv # Comment this line out of deploying to Heroku
